@@ -8,8 +8,19 @@ public class Main {
         String jogador2 = getJogador("Jogador 2");
 
         char[][] posicao = {{'1','2','3'},{'4','5','6'},{'7','8','9'}};
-
-        desenho(posicao);
+        int vez=0;
+        for(int i=0;i<=9;i++){
+          if(vez<=0){
+              escolha(jogador1);
+              desenho(posicao);
+              vez++;
+          }
+          else {
+              escolha(jogador2);
+              desenho(posicao);
+              vez--;
+          }
+        }
 
     }
     public static void initialize(){
@@ -41,4 +52,7 @@ public class Main {
 
     }
 
+    public static void escolha(String nome){
+        System.out.println(nome+" escolha uma posição:");
+    }
 }
