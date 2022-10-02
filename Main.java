@@ -9,7 +9,8 @@ public class Main {
 
         char[][] posicao = {{'1','2','3'},{'4','5','6'},{'7','8','9'}};
         int vez=0;
-        for(int i=0;i<=8;i++){
+
+        for(int i=0;i<=8f;i++){
           if(vez<=0){
               escolha(jogador1);
               Scanner sc = new Scanner(System.in);
@@ -38,9 +39,35 @@ public class Main {
                       System.out.println("Opção inválida!");
               }
               desenho(posicao);
+
+              if (posicao[0][0] == posicao[0][1] && posicao[0][0] == posicao[0][2]) {
+                  System.out.println(jogador1 + " venceu!");
+                  break;
+              } else if (posicao[1][0] == posicao[1][1] && posicao[1][0] == posicao[1][2]) {
+                  System.out.println(jogador1 + " venceu!");
+                  break;
+              } else if (posicao[2][0] == posicao[2][1] && posicao[2][0] == posicao[2][2]) {
+                  System.out.println(jogador1 + " venceu!");
+                  break;
+              } else if (posicao[0][0] == posicao[1][0] && posicao[0][0] == posicao[2][0]) {
+                  System.out.println(jogador1 + " venceu!");
+                  break;
+              } else if (posicao[0][1] == posicao[1][1] && posicao[0][1] == posicao[2][1]) {
+                  System.out.println(jogador1 + " venceu!");
+                  break;
+              } else if (posicao[0][2] == posicao[1][2] && posicao[0][2] == posicao[2][2]) {
+                  System.out.println(jogador1 + " venceu!");
+                  break;
+              } else if (posicao[0][0] == posicao[1][1] && posicao[0][0] == posicao[2][2]) {
+                  System.out.println(jogador1 + " venceu!");
+                  break;
+              } else if (posicao[0][2] == posicao[1][1] && posicao[0][0] == posicao[2][0]) {
+                  System.out.println(jogador1 + " venceu!");
+                  break;
+              }
+
               vez++;
-          }
-          else {
+          } else {
               escolha(jogador2);
               Scanner sc = new Scanner(System.in);
               char posicaoEscolhida = sc.next().charAt(0);
@@ -68,6 +95,33 @@ public class Main {
                       System.out.println("Opção inválida!");
               }
               desenho(posicao);
+
+              if (posicao[0][0] == posicao[0][1] && posicao[0][0] == posicao[0][2]) {
+                  System.out.println(jogador2 + " venceu!");
+                  break;
+              } else if (posicao[1][0] == posicao[1][1] && posicao[1][0] == posicao[1][2]) {
+                  System.out.println(jogador2 + " venceu!");
+                  break;
+              } else if (posicao[2][0] == posicao[2][1] && posicao[2][0] == posicao[2][2]) {
+                  System.out.println(jogador2 + " venceu!");
+                  break;
+              } else if (posicao[0][0] == posicao[1][0] && posicao[0][0] == posicao[2][0]) {
+                  System.out.println(jogador2 + " venceu!");
+                  break;
+              } else if (posicao[0][1] == posicao[1][1] && posicao[0][1] == posicao[2][1]) {
+                  System.out.println(jogador2 + " venceu!");
+                  break;
+              } else if (posicao[0][2] == posicao[1][2] && posicao[0][2] == posicao[2][2]) {
+                  System.out.println(jogador2 + " venceu!");
+                  break;
+              } else if (posicao[0][0] == posicao[1][1] && posicao[0][0] == posicao[2][2]) {
+                  System.out.println(jogador2 + " venceu!");
+                  break;
+              } else if (posicao[0][2] == posicao[1][1] && posicao[0][0] == posicao[2][0]) {
+                  System.out.println(jogador2 + " venceu!");
+                  break;
+              }
+
               vez--;
           }
         }
@@ -115,7 +169,6 @@ public class Main {
             System.out.println(jogador2 + "venceu!");
         } else {
             System.out.println("Deu velha!");
-        }
-    }*/
+        }*/
+    }
 
-}
