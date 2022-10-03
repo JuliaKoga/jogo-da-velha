@@ -5,183 +5,215 @@ public class Main {
     public static void main(String[] args) {
         initialize();
         Scanner sc = new Scanner(System.in);
+        boolean repetir;
+        String revanche = "Revanche";
         String jogador1 = getJogador("Jogador 1");
         String jogador2 = getJogador("Jogador 2");
 
-        char[][] posicao = {{'1','2','3'},{'4','5','6'},{'7','8','9'}};
+        char[][] posicao = new char[3][3];
         int vez=0;
+do {
+    repetir = false;
+    posicao[0][0]='1';
+    posicao[0][1]='2';
+    posicao[0][2]='3';
+    posicao[1][0]='4';
+    posicao[1][1]='5';
+    posicao[1][2]='6';
+    posicao[2][0]='7';
+    posicao[2][1]='8';
+    posicao[2][2]='9';
 
-        for(int i=0;i<=8f;i++){
-            if(vez<=0){
-                escolha(jogador1);
-                desenho(posicao);
 
-                char posicaoEscolhida = sc.next().charAt(0);
-                if(posicaoEscolhida!='X'&&posicaoEscolhida!='O') {
+    for (int i = 0; i <= 8f; i++) {
+        if (vez <= 0) {
+            escolha(jogador1);
+            desenho(posicao);
 
-                    switch (posicaoEscolhida) {
-                        case '1':
-                            posicao[0][0] = 'X';
-                            break;
-                        case '2':
-                            posicao[0][1] = 'X';
-                            break;
-                        case '3':
-                            posicao[0][2] = 'X';
-                            break;
-                        case '4':
-                            posicao[1][0] = 'X';
-                            break;
-                        case '5':
-                            posicao[1][1] = 'X';
-                            break;
-                        case '6':
-                            posicao[1][2] = 'X';
-                            break;
-                        case '7':
-                            posicao[2][0] = 'X';
-                            break;
-                        case '8':
-                            posicao[2][1] = 'X';
-                            break;
-                        case '9':
-                            posicao[2][2] = 'X';
-                            break;
-                        default:
-                            System.out.println("Opção inválida! Escolha novamente");
-                            vez--;
-                            i--;
-                    }
+            char posicaoEscolhida = sc.next().charAt(0);
+            if (posicaoEscolhida != 'X' && posicaoEscolhida != 'O') {
 
-                    if(i>4) {
-                        if (posicao[0][0] == posicao[0][1] && posicao[0][0] == posicao[0][2]) {
-                            vencedor(jogador1);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[1][0] == posicao[1][1] && posicao[1][0] == posicao[1][2]) {
-                            vencedor(jogador1);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[2][0] == posicao[2][1] && posicao[2][0] == posicao[2][2]) {
-                            vencedor(jogador1);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[0][0] == posicao[1][0] && posicao[0][0] == posicao[2][0]) {
-                            vencedor(jogador1);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[0][1] == posicao[1][1] && posicao[0][1] == posicao[2][1]) {
-                            vencedor(jogador1);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[0][2] == posicao[1][2] && posicao[0][2] == posicao[2][2]) {
-                            vencedor(jogador1);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[0][0] == posicao[1][1] && posicao[0][0] == posicao[2][2]) {
-                            vencedor(jogador1);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[0][2] == posicao[1][1] && posicao[0][2] == posicao[2][0]) {
-                            vencedor(jogador1);
-                            desenho(posicao);
-                            break;
-                        }
-                    }
-
-                    vez++;
-                }else{
-                    System.out.println("posição já ocupada, escolha novamente");
-                    i--;
+                switch (posicaoEscolhida) {
+                    case '1':
+                        posicao[0][0] = 'X';
+                        break;
+                    case '2':
+                        posicao[0][1] = 'X';
+                        break;
+                    case '3':
+                        posicao[0][2] = 'X';
+                        break;
+                    case '4':
+                        posicao[1][0] = 'X';
+                        break;
+                    case '5':
+                        posicao[1][1] = 'X';
+                        break;
+                    case '6':
+                        posicao[1][2] = 'X';
+                        break;
+                    case '7':
+                        posicao[2][0] = 'X';
+                        break;
+                    case '8':
+                        posicao[2][1] = 'X';
+                        break;
+                    case '9':
+                        posicao[2][2] = 'X';
+                        break;
+                    default:
+                        System.out.println("Opção inválida! Escolha novamente");
+                        vez--;
+                        i--;
                 }
 
+                if (i > 3) {
+                    if (posicao[0][0] == posicao[0][1] && posicao[0][0] == posicao[0][2]) {
+                        vencedor(jogador1);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[1][0] == posicao[1][1] && posicao[1][0] == posicao[1][2]) {
+                        vencedor(jogador1);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[2][0] == posicao[2][1] && posicao[2][0] == posicao[2][2]) {
+                        vencedor(jogador1);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[0][0] == posicao[1][0] && posicao[0][0] == posicao[2][0]) {
+                        vencedor(jogador1);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[0][1] == posicao[1][1] && posicao[0][1] == posicao[2][1]) {
+                        vencedor(jogador1);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[0][2] == posicao[1][2] && posicao[0][2] == posicao[2][2]) {
+                        vencedor(jogador1);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[0][0] == posicao[1][1] && posicao[0][0] == posicao[2][2]) {
+                        vencedor(jogador1);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[0][2] == posicao[1][1] && posicao[0][2] == posicao[2][0]) {
+                        vencedor(jogador1);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    }
+                }
+
+                vez++;
             } else {
-                escolha(jogador2);
-                desenho(posicao);
-
-                char posicaoEscolhida = sc.next().charAt(0);
-                if (posicaoEscolhida != 'X' && posicaoEscolhida != 'O') {
-
-                    switch (posicaoEscolhida) {
-                        case '1':
-                            posicao[0][0] = 'O';
-                            break;
-                        case '2':
-                            posicao[0][1] = 'O';
-                            break;
-                        case '3':
-                            posicao[0][2] = 'O';
-                            break;
-                        case '4':
-                            posicao[1][0] = 'O';
-                            break;
-                        case '5':
-                            posicao[1][1] = 'O';
-                            break;
-                        case '6':
-                            posicao[1][2] = 'O';
-                            break;
-                        case '7':
-                            posicao[2][0] = 'O';
-                            break;
-                        case '8':
-                            posicao[2][1] = 'O';
-                            break;
-                        case '9':
-                            posicao[2][2] = 'O';
-                            break;
-                        default:
-                            System.out.println("Opção inválida! Escolha novamente");
-                            vez++;
-                            i--;
-                    }
-
-                    if (i > 4) {
-                        if (posicao[0][0] == posicao[0][1] && posicao[0][0] == posicao[0][2]) {
-                            vencedor(jogador2);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[1][0] == posicao[1][1] && posicao[1][0] == posicao[1][2]) {
-                            vencedor(jogador2);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[2][0] == posicao[2][1] && posicao[2][0] == posicao[2][2]) {
-                            vencedor(jogador2);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[0][0] == posicao[1][0] && posicao[0][0] == posicao[2][0]) {
-                            vencedor(jogador2);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[0][1] == posicao[1][1] && posicao[0][1] == posicao[2][1]) {
-                            vencedor(jogador2);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[0][2] == posicao[1][2] && posicao[0][2] == posicao[2][2]) {
-                            vencedor(jogador2);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[0][0] == posicao[1][1] && posicao[0][0] == posicao[2][2]) {
-                            vencedor(jogador2);
-                            desenho(posicao);
-                            break;
-                        } else if (posicao[0][2] == posicao[1][1] && posicao[0][2] == posicao[2][0]) {
-                            vencedor(jogador2);
-                            desenho(posicao);
-                            break;
-                        }
-                    }
-                    vez--;
-                } else {
-                    System.out.println("posição já ocupada, escolha novamente");
-                    i--;
-                }
+                System.out.println("posição já ocupada, escolha novamente");
+                i--;
             }
-            if(i==8){
-                System.out.println("Deu velha!");
-                desenho(posicao);
+
+        } else {
+            escolha(jogador2);
+            desenho(posicao);
+
+            char posicaoEscolhida = sc.next().charAt(0);
+            if (posicaoEscolhida != 'X' && posicaoEscolhida != 'O') {
+
+                switch (posicaoEscolhida) {
+                    case '1':
+                        posicao[0][0] = 'O';
+                        break;
+                    case '2':
+                        posicao[0][1] = 'O';
+                        break;
+                    case '3':
+                        posicao[0][2] = 'O';
+                        break;
+                    case '4':
+                        posicao[1][0] = 'O';
+                        break;
+                    case '5':
+                        posicao[1][1] = 'O';
+                        break;
+                    case '6':
+                        posicao[1][2] = 'O';
+                        break;
+                    case '7':
+                        posicao[2][0] = 'O';
+                        break;
+                    case '8':
+                        posicao[2][1] = 'O';
+                        break;
+                    case '9':
+                        posicao[2][2] = 'O';
+                        break;
+                    default:
+                        System.out.println("Opção inválida! Escolha novamente");
+                        vez++;
+                        i--;
+                }
+
+                if (i > 4) {
+                    if (posicao[0][0] == posicao[0][1] && posicao[0][0] == posicao[0][2]) {
+                        vencedor(jogador2);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[1][0] == posicao[1][1] && posicao[1][0] == posicao[1][2]) {
+                        vencedor(jogador2);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[2][0] == posicao[2][1] && posicao[2][0] == posicao[2][2]) {
+                        vencedor(jogador2);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[0][0] == posicao[1][0] && posicao[0][0] == posicao[2][0]) {
+                        vencedor(jogador2);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[0][1] == posicao[1][1] && posicao[0][1] == posicao[2][1]) {
+                        vencedor(jogador2);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[0][2] == posicao[1][2] && posicao[0][2] == posicao[2][2]) {
+                        vencedor(jogador2);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[0][0] == posicao[1][1] && posicao[0][0] == posicao[2][2]) {
+                        vencedor(jogador2);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    } else if (posicao[0][2] == posicao[1][1] && posicao[0][2] == posicao[2][0]) {
+                        vencedor(jogador2);
+                        desenho(posicao);
+                        repetir=repeticao(revanche);
+                        break;
+                    }
+                }
+                vez--;
+            } else {
+                System.out.println("posição já ocupada, escolha novamente");
+                i--;
             }
         }
+        if (i == 8) {
+            System.out.println("Deu velha!");
+            desenho(posicao);
+            repetir=repeticao("Jogar novamente");
+        }
+    }
+}while(repetir);
 
     }
     public static void initialize(){
@@ -221,6 +253,18 @@ public class Main {
     public static void vencedor(String nome){
 
         System.out.println(nome+" venceu!");
+    }
+
+    public static boolean repeticao(String a){
+        Scanner sc = new Scanner(System.in);
+        System.out.println(a+"?(s/n)");
+        String simNao = sc.nextLine();
+        if(simNao.toUpperCase()=="S"){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     /*public static void vencedor(String resultado){
