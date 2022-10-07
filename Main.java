@@ -6,6 +6,8 @@ public class Main {
         initialize();
         Scanner sc = new Scanner(System.in);
         boolean repetir;
+        int pontuacao1 = 0;
+        int pontuacao2 = 0;
         String revanche = "Revanche";
         String jogador1 = getJogador("Jogador 1");
         String jogador2 = getJogador("Jogador 2");
@@ -119,51 +121,67 @@ public class Main {
                             i--;
                     }
 
-                        if (i > 3) {
-                            if (posicao[0][0] == posicao[0][1] && posicao[0][0] == posicao[0][2]) {
-                                vencedor(jogador1);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[1][0] == posicao[1][1] && posicao[1][0] == posicao[1][2]) {
-                                vencedor(jogador1);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[2][0] == posicao[2][1] && posicao[2][0] == posicao[2][2]) {
-                                vencedor(jogador1);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[0][0] == posicao[1][0] && posicao[0][0] == posicao[2][0]) {
-                                vencedor(jogador1);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[0][1] == posicao[1][1] && posicao[0][1] == posicao[2][1]) {
-                                vencedor(jogador1);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[0][2] == posicao[1][2] && posicao[0][2] == posicao[2][2]) {
-                                vencedor(jogador1);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[0][0] == posicao[1][1] && posicao[0][0] == posicao[2][2]) {
-                                vencedor(jogador1);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[0][2] == posicao[1][1] && posicao[0][2] == posicao[2][0]) {
-                                vencedor(jogador1);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            }
+                    if (i > 3) {
+                        if (posicao[0][0] == posicao[0][1] && posicao[0][0] == posicao[0][2]) {
+                            pontuacao1++;
+                            vencedor(jogador1);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[1][0] == posicao[1][1] && posicao[1][0] == posicao[1][2]) {
+                            pontuacao1++;
+                            vencedor(jogador1);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[2][0] == posicao[2][1] && posicao[2][0] == posicao[2][2]) {
+                            pontuacao1++;
+                            vencedor(jogador1);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[0][0] == posicao[1][0] && posicao[0][0] == posicao[2][0]) {
+                            pontuacao1++;
+                            vencedor(jogador1);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[0][1] == posicao[1][1] && posicao[0][1] == posicao[2][1]) {
+                            pontuacao1++;
+                            vencedor(jogador1);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[0][2] == posicao[1][2] && posicao[0][2] == posicao[2][2]) {
+                            pontuacao1++;
+                            vencedor(jogador1);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[0][0] == posicao[1][1] && posicao[0][0] == posicao[2][2]) {
+                            pontuacao1++;
+                            vencedor(jogador1);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[0][2] == posicao[1][1] && posicao[0][2] == posicao[2][0]) {
+                            pontuacao1++;
+                            vencedor(jogador1);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
                         }
+                    }
 
-                        vez++;
+                    vez++;
 
                 } else {
                     escolha(jogador2);
@@ -258,55 +276,72 @@ public class Main {
                             i--;
                     }
 
-                        if (i > 4) {
-                            if (posicao[0][0] == posicao[0][1] && posicao[0][0] == posicao[0][2]) {
-                                vencedor(jogador2);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[1][0] == posicao[1][1] && posicao[1][0] == posicao[1][2]) {
-                                vencedor(jogador2);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[2][0] == posicao[2][1] && posicao[2][0] == posicao[2][2]) {
-                                vencedor(jogador2);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[0][0] == posicao[1][0] && posicao[0][0] == posicao[2][0]) {
-                                vencedor(jogador2);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[0][1] == posicao[1][1] && posicao[0][1] == posicao[2][1]) {
-                                vencedor(jogador2);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[0][2] == posicao[1][2] && posicao[0][2] == posicao[2][2]) {
-                                vencedor(jogador2);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[0][0] == posicao[1][1] && posicao[0][0] == posicao[2][2]) {
-                                vencedor(jogador2);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            } else if (posicao[0][2] == posicao[1][1] && posicao[0][2] == posicao[2][0]) {
-                                vencedor(jogador2);
-                                desenho(posicao);
-                                repetir=repeticao(revanche);
-                                break;
-                            }
+                    if (i > 4) {
+                        if (posicao[0][0] == posicao[0][1] && posicao[0][0] == posicao[0][2]) {
+                            pontuacao2++;
+                            vencedor(jogador2);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[1][0] == posicao[1][1] && posicao[1][0] == posicao[1][2]) {
+                            pontuacao2++;
+                            vencedor(jogador2);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[2][0] == posicao[2][1] && posicao[2][0] == posicao[2][2]) {
+                            pontuacao2++;
+                            vencedor(jogador2);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[0][0] == posicao[1][0] && posicao[0][0] == posicao[2][0]) {
+                            pontuacao2++;
+                            vencedor(jogador2);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[0][1] == posicao[1][1] && posicao[0][1] == posicao[2][1]) {
+                            pontuacao2++;
+                            vencedor(jogador2);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[0][2] == posicao[1][2] && posicao[0][2] == posicao[2][2]) {
+                            pontuacao2++;
+                            vencedor(jogador2);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[0][0] == posicao[1][1] && posicao[0][0] == posicao[2][2]) {
+                            pontuacao2++;
+                            vencedor(jogador2);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
+                        } else if (posicao[0][2] == posicao[1][1] && posicao[0][2] == posicao[2][0]) {
+                            pontuacao2++;
+                            vencedor(jogador2);
+                            desenho(posicao);
+                            placar(jogador1, jogador2, pontuacao1, pontuacao2);
+                            repetir=repeticao(revanche);
+                            break;
                         }
-                        vez--;
+                    }
+                    vez--;
 
                 }
                 if (i == 8) {
                     System.out.println("Deu velha!");
                     desenho(posicao);
+                    placar(jogador1, jogador2, pontuacao1, pontuacao2);
                     repetir=repeticao("Jogar novamente");
                 }
             }
@@ -360,5 +395,13 @@ public class Main {
         else {
             return false;
         }
+    }
+
+    public static void placar(String jogador1, String jogador2, int pontuacao1, int pontuacao2){
+        System.out.println("____________________________");
+        System.out.println("|          PLACAR          |");
+        System.out.println("|__________________________|");
+        System.out.println(jogador1 + " = " + pontuacao1);
+        System.out.println(jogador2 + " = " + pontuacao2);
     }
 }
